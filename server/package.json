@@ -1,13 +1,14 @@
 {
-  "name": "blog-board",
+  "name": "lucid",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "devserver": "nodemon server.js"
+    "start": "node server",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Johnson Duong",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.8",
