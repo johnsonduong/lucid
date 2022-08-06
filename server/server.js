@@ -1,27 +1,48 @@
 const express = require("express");
-const postRouter = require("./routes/posts");
-const app = express();
+const cors = require("cors");
+const mongoose = require("mongoose");
 
-// app.set("view engine", "ejs");
+require("dotenv").config();
+
+const app = express();
+const port = process.env.PORT || 5000;
+
+app.use(cors());
+app.use(express.json());
+
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, { useNewUrlParser: true });
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
+});
+
+const postRouter = require("./routes/posts");
 
 app.use("/posts", postRouter);
 
-app.get("/api", (req, res) => {
-  res.json({ dreams: ["dream1", "dream2", "dream3"] });
-});
-
-// app.get("/", (req, res) => {
+// app.get("/api", (req, res) => {
 //   const posts = [
 //     {
-//       title: "Test",
-//       createdOn: Date.now(),
-//       description: "test description",
+//       title: "Test1",
+//       date: new Date(),
+//       body: "test description",
+//     },
+//     {
+//       title: "Test2",
+//       date: new Date(),
+//       body: "test description",
+//     },
+//     {
+//       title: "Test3",
+//       date: new Date(),
+//       body: "test description",
 //     },
 //   ];
 
-//   res.render("index", { posts: posts });
+//   res.json({ posts: posts });
 // });
 
-app.listen(4000, () => {
-  console.log("Server started on port 4000");
+app.listen(port, () => {
+  console.log(`Server started on port: ${port}`);
 });
