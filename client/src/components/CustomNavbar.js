@@ -8,7 +8,6 @@ function CustomNavbar() {
         <Navbar.Brand href="/">lucid</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/edit">Edit</Nav.Link>
           <Nav.Link href="/create">Create</Nav.Link>
         </Nav>
       </Container>
