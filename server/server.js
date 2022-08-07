@@ -2,6 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+const postRouter = require("./routes/posts");
+const authRouter = require("./routes/auth");
+
 require("dotenv").config();
 
 const app = express();
@@ -17,31 +20,8 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 
-const postRouter = require("./routes/posts");
-
 app.use("/posts", postRouter);
-
-// app.get("/api", (req, res) => {
-//   const posts = [
-//     {
-//       title: "Test1",
-//       date: new Date(),
-//       body: "test description",
-//     },
-//     {
-//       title: "Test2",
-//       date: new Date(),
-//       body: "test description",
-//     },
-//     {
-//       title: "Test3",
-//       date: new Date(),
-//       body: "test description",
-//     },
-//   ];
-
-//   res.json({ posts: posts });
-// });
+app.use("/auth", authRouter);
 
 app.listen(port, () => {
   console.log(`Server started on port: ${port}`);
