@@ -8,24 +8,14 @@ import EditDream from "./components/EditDream";
 import CreateDream from "./components/CreateDream";
 
 function App() {
-  // const [backendData, setBackendData] = useState([{}]);
-
-  // useEffect(() => {
-  //   fetch("/api")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setBackendData(data);
-  //     });
-  // }, []);
-
   return (
     <div className="container">
       <CustomNavbar />
       <br />
       <Routes>
         <Route path="/" exact element={<DreamsList />} />
-        <Route path="/edit/:id" element={<EditDream />} />
         <Route path="/create" element={<CreateDream />} />
+        <Route path="/edit/:id" element={<EditDream />} />
       </Routes>
     </div>
   );

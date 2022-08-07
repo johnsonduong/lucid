@@ -18,9 +18,7 @@ function CreateDream() {
       date: date,
     };
 
-    // console.log(dream);
-
-    axios.post("http://localhost:4000/posts/add", dream).then((res) => console.log(res.data));
+    axios.post("/posts/add", dream).then((res) => console.log(res.data));
 
     window.location = "/";
   };
