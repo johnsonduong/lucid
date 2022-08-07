@@ -14,10 +14,18 @@ function DreamsList() {
       .catch((err) => console.log(err));
   }, []);
 
+  const deleteDream = (id) => {
+    axios.delete("/posts/" + id).then((response) => {
+      console.log(response.data);
+    });
+
+    setDreams(dreams.filter((dream) => dream._id !== id));
+  };
+
   return (
     <div>
       {dreams.map((dream) => (
-        <DreamCard title={dream.title} description={dream.description} date={dream.date} />
+        <DreamCard title={dream.title} description={dream.description} date={dream.date} deleteDream={deleteDream} id={dream._id} />
       ))}
     </div>
   );
@@ -26,7 +34,10 @@ function DreamsList() {
 function DreamCard(props) {
   return (
     <Card border="dark" className="my-3">
-      <Card.Header>{props.date}</Card.Header>
+      <Card.Header className="d-flex justify-content-between">
+        {props.date}
+        <Button onClick={() => props.deleteDream(props.id)}>Delete</Button>
+      </Card.Header>
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>{props.description}</Card.Text>
