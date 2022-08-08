@@ -6,6 +6,7 @@ import CustomNavbar from "./components/CustomNavbar";
 import DreamsList from "./components/DreamsList";
 import EditDream from "./components/EditDream";
 import CreateDream from "./components/CreateDream";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <br />
       <Routes>
         <Route path="/" exact element={<DreamsList />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/create" element={<CreateDream />} />
         <Route path="/edit/:id" element={<EditDream />} />
       </Routes>

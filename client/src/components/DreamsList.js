@@ -16,13 +16,6 @@ function DreamsList() {
       .catch((err) => console.log(err));
   }, []);
 
-  const editDream = (id) => {
-    // axios.delete("/posts/" + id).then((response) => {
-    //   console.log(response.data);
-    // });
-    // setDreams(dreams.filter((dream) => dream._id !== id));
-  };
-
   const deleteDream = (id) => {
     axios.delete("/posts/" + id).then((response) => {
       console.log(response.data);
@@ -33,8 +26,11 @@ function DreamsList() {
 
   return (
     <div>
+      <Link to={"/create"}>
+        <Button className="m-1">New Entry</Button>
+      </Link>
       {dreams.map((dream) => (
-        <DreamCard title={dream.title} description={dream.description} date={dream.date} editDream={editDream} deleteDream={deleteDream} id={dream._id} />
+        <DreamCard title={dream.title} description={dream.description} date={dream.date} deleteDream={deleteDream} id={dream._id} />
       ))}
     </div>
   );
@@ -44,12 +40,10 @@ function DreamCard(props) {
   return (
     <Card border="dark" className="my-3">
       <Card.Header className="d-flex justify-content-between">
-        {props.date}
+        {props.date.substring(0, 10)}
         <div>
           <Link to={"/edit/" + props.id}>
-            <Button className="m-1" onClick={() => props.editDream(props.id)}>
-              Edit
-            </Button>
+            <Button className="m-1">Edit</Button>
           </Link>
           <Button className="m-1" onClick={() => props.deleteDream(props.id)}>
             Delete

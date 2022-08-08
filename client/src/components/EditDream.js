@@ -45,6 +45,11 @@ function EditDream() {
     <div>
       <div>
         <Form onSubmit={onSubmit}>
+          <Form.Group className="mb-3" controlId="formDate">
+            <Form.Label>Date</Form.Label>
+            <DatePicker selected={date} onChange={(date) => setDate(date)} />
+          </Form.Group>
+
           <Form.Group className="mb-3" controlId="formTitle">
             <Form.Label>Title</Form.Label>
             <Form.Control type="text" placeholder="Enter title" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -52,12 +57,7 @@ function EditDream() {
 
           <Form.Group className="mb-3" controlId="formDescription">
             <Form.Label>Description</Form.Label>
-            <Form.Control as="textarea" rows={3} placeholder="What happened in your dream?" value={description} onChange={(e) => setDescription(e.target.value)} />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formDate">
-            <Form.Label>Date</Form.Label>
-            <DatePicker selected={date} onChange={(date) => setDate(date)} />
+            <Form.Control as="textarea" rows={10} placeholder="What happened in your dream?" value={description} onChange={(e) => setDescription(e.target.value)} />
           </Form.Group>
 
           <Button variant="primary" type="submit">
