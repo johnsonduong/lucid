@@ -6,7 +6,7 @@ const PostSchema = new Schema(
   {
     title: { type: String, required: true },
     description: { type: String, required: true },
-    date: { type: Date },
+    date: { type: Date, required: true },
     username: { type: String, required: true },
   },
   {

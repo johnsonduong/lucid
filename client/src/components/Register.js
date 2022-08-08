@@ -26,15 +26,17 @@ function Register() {
 
   return (
     <div>
+      <h1>Sign up</h1>
+
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Username</Form.Label>
-          <Form.Control type="text" placeholder="Enter username" onChange={(e) => setEmail(e.target.value)} />
+          <Form.Control type="text" placeholder="Enter username" onChange={(e) => setUsername(e.target.value)} />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" onChange={(e) => setUsername(e.target.value)} />
+          <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">

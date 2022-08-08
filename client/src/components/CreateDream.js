@@ -9,7 +9,7 @@ function CreateDream() {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState(new Date());
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const dream = {
@@ -18,7 +18,7 @@ function CreateDream() {
       date: date,
     };
 
-    axios.post("/posts/add", dream).then((res) => console.log(res.data));
+    axios.post("/posts/", dream).then((res) => console.log(res.data));
 
     window.location = "/";
   };
@@ -26,7 +26,7 @@ function CreateDream() {
   return (
     <div>
       <div>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formDate">
             <Form.Label>Date</Form.Label>
             <DatePicker selected={date} onChange={(date) => setDate(date)} />

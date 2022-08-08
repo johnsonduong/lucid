@@ -36,7 +36,7 @@ function EditDream() {
       date: date,
     };
 
-    axios.post("/posts/update/" + id.current, dream).then((res) => console.log(res.data));
+    axios.put("/posts/" + id.current, dream).then((res) => console.log(res.data));
 
     window.location = "/";
   };

@@ -21,10 +21,10 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
-    !user && res.status(400).json("Wrong credentials!");
+    !user && res.status(400).json("User doesn't exist!");
 
     const validated = await bcrypt.compare(req.body.password, user.password);
-    !validated && res.status(400).json("Wrong credentials!");
+    !validated && res.status(400).json("Wrong password!");
 
     const { password, ...otherData } = user._doc;
     res.status(200).json(otherData);
