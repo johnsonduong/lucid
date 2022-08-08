@@ -19,6 +19,7 @@ function Login() {
         password: passwordRef.current.value,
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      // res.data && window.location.replace("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
     }

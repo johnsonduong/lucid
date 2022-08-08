@@ -12,13 +12,11 @@ import { Context } from "./context/Context";
 
 function App() {
   const { user } = useContext(Context);
-  // const user = false;
   return (
     <div className="container">
       <CustomNavbar />
       <br />
       <Routes>
-        <Route path="/" exact element={user ? <DreamsList /> : <Login />} />
         <Route path="/register" element={user ? <DreamsList /> : <Register />} />
         <Route path="/login" element={user ? <DreamsList /> : <Login />} />
         <Route path="/create" element={<CreateDream />} />
