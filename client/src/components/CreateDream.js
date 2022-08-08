@@ -1,10 +1,14 @@
-import { React, useState } from "react";
+import { React, useState, useRef, useContext } from "react";
+import { Context } from "../context/Context";
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
 function CreateDream() {
+  const { user } = useContext(Context);
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState(new Date());
@@ -12,13 +16,14 @@ function CreateDream() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const dream = {
-      title: title,
-      description: description,
-      date: date,
-    };
-
-    axios.post("/posts/", dream).then((res) => console.log(res.data));
+    axios
+      .post("/posts/", {
+        title: title,
+        description: description,
+        date: date,
+        username: user.username,
+      })
+      .then((res) => console.log(res.data));
 
     window.location = "/";
   };

@@ -17,6 +17,7 @@ function App() {
       <CustomNavbar />
       <br />
       <Routes>
+        <Route path="/" exact element={user ? <DreamsList /> : <Login />} />
         <Route path="/register" element={user ? <DreamsList /> : <Register />} />
         <Route path="/login" element={user ? <DreamsList /> : <Login />} />
         <Route path="/create" element={<CreateDream />} />
