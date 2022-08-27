@@ -6,26 +6,25 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
-function CreateDream() {
+function CreatePost() {
   const { user } = useContext(Context);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState(new Date());
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios
-      .post("/posts/", {
+    try {
+      await axios.post("/posts/", {
+        username: user.username,
         title: title,
         description: description,
         date: date,
-        username: user.username,
-      })
-      .then((res) => console.log(res.data));
-
-    window.location = "/";
+      });
+      window.location.replace("/");
+    } catch (err) {}
   };
 
   return (
@@ -44,7 +43,7 @@ function CreateDream() {
 
           <Form.Group className="mb-3" controlId="formDescription">
             <Form.Label>Description</Form.Label>
-            <Form.Control as="textarea" rows={10} placeholder="What happened in your dream?" onChange={(e) => setDescription(e.target.value)} />
+            <Form.Control as="textarea" rows={15} placeholder="What happened in your dream?" onChange={(e) => setDescription(e.target.value)} />
           </Form.Group>
 
           <Button variant="primary" type="submit">
@@ -56,4 +55,4 @@ function CreateDream() {
   );
 }
 
-export default CreateDream;
+export default CreatePost;

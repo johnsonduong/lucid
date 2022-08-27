@@ -3,9 +3,9 @@ import { Router, Routes, Route, Navigate } from "react-router-dom";
 import { Container, Button, Card, Navbar, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CustomNavbar from "./components/CustomNavbar";
-import DreamsList from "./components/DreamsList";
-import EditDream from "./components/EditDream";
-import CreateDream from "./components/CreateDream";
+import PostsList from "./components/PostsList";
+import EditPost from "./components/EditPost";
+import CreatePost from "./components/CreatePost";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import { Context } from "./context/Context";
@@ -17,11 +17,11 @@ function App() {
       <CustomNavbar />
       <br />
       <Routes>
-        <Route path="/" exact element={user ? <DreamsList /> : <Login />} />
-        <Route path="/register" element={user ? <DreamsList /> : <Register />} />
-        <Route path="/login" element={user ? <DreamsList /> : <Login />} />
-        <Route path="/create" element={<CreateDream />} />
-        <Route path="/edit/:id" element={<EditDream />} />
+        <Route path="/" exact element={user ? <PostsList /> : <Login />} />
+        <Route path="/register" element={user ? <PostsList /> : <Register />} />
+        <Route path="/login" element={user ? <PostsList /> : <Login />} />
+        <Route path="/create" element={<CreatePost />} />
+        <Route path="/edit/:id" element={<EditPost />} />
       </Routes>
     </div>
   );
