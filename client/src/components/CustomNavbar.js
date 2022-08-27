@@ -20,20 +20,16 @@ function CustomNavbar() {
           <Nav defaultActiveKey="/">
             <Nav.Item>
               <Nav.Link href="/">
-                {user && (
-                  <Button variant="outline-dark" style={{ border: "none" }}>
-                    Home
-                  </Button>
-                )}
+                <Button variant="outline-dark" style={{ border: "none" }}>
+                  Home
+                </Button>
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link href="/login" onClick={handleLogout}>
-                {user && (
-                  <Button variant="outline-secondary" style={{ border: "none" }}>
-                    Logout
-                  </Button>
-                )}
+                <Button variant="outline-secondary" style={{ border: "none" }}>
+                  Logout
+                </Button>
               </Nav.Link>
             </Nav.Item>
           </Nav>

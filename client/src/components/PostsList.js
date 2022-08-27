@@ -37,7 +37,9 @@ function PostsList() {
 
   return (
     <div>
-      <h1 className="mb-5 display-6">Welcome back, {user.username}</h1>
+      <h1 className="mb-5 display-6">
+        Good to see you again, <span style={{ fontWeight: "bold" }}>{user.username}</span>
+      </h1>
       <Link to={"/create"}>
         <Button className="my-1">New Entry</Button>
       </Link>

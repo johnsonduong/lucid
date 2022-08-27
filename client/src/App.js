@@ -14,7 +14,7 @@ function App() {
   const { user } = useContext(Context);
   return (
     <div className="container">
-      <CustomNavbar />
+      {user && <CustomNavbar />}
       <br />
       <Routes>
         <Route path="/" exact element={user ? <PostsList /> : <Login />} />
