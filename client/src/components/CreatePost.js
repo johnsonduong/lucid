@@ -38,12 +38,12 @@ function CreatePost() {
 
           <Form.Group className="mb-3" controlId="formTitle">
             <Form.Label>Title</Form.Label>
-            <Form.Control type="text" placeholder="Enter title" onChange={(e) => setTitle(e.target.value)} />
+            <Form.Control type="text" placeholder="Enter title" onChange={(e) => setTitle(e.target.value)} required />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formDescription">
             <Form.Label>Description</Form.Label>
-            <Form.Control as="textarea" rows={15} placeholder="What happened in your dream?" onChange={(e) => setDescription(e.target.value)} />
+            <Form.Control as="textarea" rows={15} placeholder="What happened in your dream?" onChange={(e) => setDescription(e.target.value)} required />
           </Form.Group>
 
           <Button variant="primary" type="submit">

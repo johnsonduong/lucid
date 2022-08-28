@@ -35,17 +35,20 @@ function PostsList() {
     }
   };
 
+  const postsSortedByDate = posts.sort((a, b) => new Date(b.date) - new Date(a.date)).map((post) => <PostCard title={post.title} description={post.description} date={post.date} deletePost={handleDelete} id={post._id} />);
+  const postsSortedByDatedAdded = posts.reverse().map((post) => <PostCard title={post.title} description={post.description} date={post.date} deletePost={handleDelete} id={post._id} />);
+
   return (
-    <div>
+    <div style={{ marginBottom: 70 }}>
       <h1 className="mb-5 display-6">
-        Good to see you again, <span style={{ fontWeight: "bold" }}>{user.username}</span>
+        Good to see you, <span style={{ fontWeight: "bold" }}>{user.username}</span>
       </h1>
       <Link to={"/create"}>
         <Button className="my-1">New Entry</Button>
       </Link>
-      {posts.reverse().map((post) => (
-        <PostCard title={post.title} description={post.description} date={post.date} deletePost={handleDelete} id={post._id} />
-      ))}
+      <div style={{ display: "flex" }}>{/* <p>Sort by: </p> */}</div>
+      {postsSortedByDate}
+      {/* {postsSortedByDatedAdded} */}
     </div>
   );
 }

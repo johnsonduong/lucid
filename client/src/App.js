@@ -12,6 +12,7 @@ import { Context } from "./context/Context";
 
 function App() {
   const { user } = useContext(Context);
+
   return (
     <div className="container">
       {user && <CustomNavbar />}
