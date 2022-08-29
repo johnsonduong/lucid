@@ -1,9 +1,20 @@
 {
   "name": "lucid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "engines": {
-    "node": "14.18.1 "
+    "node": "14.18.1",
+    "npm": "8.10.0"
   },
   "scripts": {
+    "start": "cd server && node server.js",
+    "backend": "cd server && nodemon server.js",
+    "frontend": "cd client && npm start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "dependencies": {
+    "concurrently": "^7.3.0"
   }
 }
