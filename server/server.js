@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const authRouter = require("./routes/auth");
 const userRouter = require("./routes/users");
@@ -21,6 +22,10 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 
+app.use("/auth", authRouter);
+app.use("/users", userRouter);
+app.use("/posts", postRouter);
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("../client/build"));
 
@@ -28,10 +33,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
   });
 }
-
-app.use("/auth", authRouter);
-app.use("/users", userRouter);
-app.use("/posts", postRouter);
 
 app.listen(port, () => {
   console.log(`Server started on port: ${port}`);
