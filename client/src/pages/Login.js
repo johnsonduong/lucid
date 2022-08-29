@@ -11,7 +11,7 @@ import axios from "axios";
 function Login() {
   const userRef = useRef();
   const passwordRef = useRef();
-  const [show, setShow] = useState(false);
+  const [showError, setShowError] = useState(false);
   const { dispatch, isFetching } = useContext(Context);
 
   const handleSubmit = async (e) => {
@@ -26,7 +26,7 @@ function Login() {
       // res.data && window.location.replace("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
-      setShow(true);
+      setShowError(true);
     }
   };
 
@@ -34,8 +34,8 @@ function Login() {
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "80vh" }}>
       <h1>Lucid</h1>
       <p>A free journal to write down your dreams</p>
-      <Card border="light" style={{ padding: 30, marginTop: 20, width: "50%", boxShadow: "0px 0px 5px #999999" }}>
-        <h2>Login</h2>
+      <Card border="light" style={{ padding: 30, marginTop: 20, width: "50%", boxShadow: "0px 5px 25px lightgray" }}>
+        <h2 className="mb-3">Login</h2>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
@@ -50,8 +50,8 @@ function Login() {
           <Button variant="primary" type="submit" disabled={isFetching} style={{ marginBottom: 10 }}>
             Login
           </Button>
-          {show && (
-            <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+          {showError && (
+            <Alert variant="danger" onClose={() => setShowError(false)} dismissible>
               User does not exist or incorrect entered credentials. Please try again.
             </Alert>
           )}

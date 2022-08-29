@@ -1,29 +1,33 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import { React, useEffect, useState, useContext } from "react";
 import { Router, Routes, Route, Navigate } from "react-router-dom";
 import { Container, Button, Card, Navbar, Nav } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import CustomNavbar from "./components/CustomNavbar";
-import PostsList from "./components/PostsList";
-import EditPost from "./components/EditPost";
-import CreatePost from "./components/CreatePost";
-import Login from "./components/Login";
-import Register from "./components/Register";
 import { Context } from "./context/Context";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Settings from "./pages/Settings";
+import CreatePost from "./pages/CreatePost";
+import EditPost from "./pages/EditPost";
 
 function App() {
   const { user } = useContext(Context);
 
   return (
-    <div className="container">
+    <div>
       {user && <CustomNavbar />}
-      <br />
-      <Routes>
-        <Route path="/" exact element={user ? <PostsList /> : <Login />} />
-        <Route path="/register" element={user ? <PostsList /> : <Register />} />
-        <Route path="/login" element={user ? <PostsList /> : <Login />} />
-        <Route path="/create" element={<CreatePost />} />
-        <Route path="/edit/:id" element={<EditPost />} />
-      </Routes>
+      <div className="container">
+        <br />
+        <Routes>
+          <Route path="/" exact element={user ? <Home /> : <Login />} />
+          <Route path="/register" element={user ? <Home /> : <Register />} />
+          <Route path="/login" element={user ? <Home /> : <Login />} />
+          {/* <Route path="/settings" element={<Settings />} /> */}
+          <Route path="/create" element={<CreatePost />} />
+          <Route path="/edit/:id" element={<EditPost />} />
+        </Routes>
+      </div>
     </div>
   );
 }

@@ -3,8 +3,6 @@ import { React, useEffect, useState, useContext } from "react";
 import { Container, Button, Card, Navbar, Nav, Col } from "react-bootstrap";
 import { Context } from "../context/Context";
 
-import DarkTheme from "react-dark-theme";
-
 function CustomNavbar() {
   const { user, dispatch } = useContext(Context);
 
@@ -12,19 +10,9 @@ function CustomNavbar() {
     dispatch({ type: "LOGOUT" });
   };
 
-  const lightTheme = {
-    background: "white",
-    text: "black",
-  };
-
-  const darkTheme = {
-    background: "black",
-    text: "white",
-  };
-
   return (
-    <Navbar className="mb-5 pt-3 ">
-      <Container className="d-flex justify-content-between px-0">
+    <Navbar className="mb-5 py-3" style={{ boxShadow: "0px 1px 1px lightgray" }}>
+      <Container className="d-flex justify-content-between">
         <div>
           <Navbar.Brand href="/">
             <span style={{ fontWeight: "bold" }}>Lucid</span>
@@ -32,9 +20,6 @@ function CustomNavbar() {
         </div>
         <div>
           <Nav defaultActiveKey="/">
-            {/* <Nav.Item>
-              <DarkTheme light={lightTheme} dark={darkTheme} />
-            </Nav.Item> */}
             <Nav.Item>
               <Nav.Link href="/">
                 <Button variant="outline-dark" style={{ border: "none" }}>
@@ -42,6 +27,13 @@ function CustomNavbar() {
                 </Button>
               </Nav.Link>
             </Nav.Item>
+            {/* <Nav.Item>
+              <Nav.Link href="/settings">
+                <Button variant="outline-dark" style={{ border: "none" }}>
+                  Settings
+                </Button>
+              </Nav.Link>
+            </Nav.Item> */}
             <Nav.Item>
               <Nav.Link href="/login" onClick={handleLogout}>
                 <Button variant="outline-secondary" style={{ border: "none" }}>
