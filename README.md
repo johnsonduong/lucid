@@ -1,7 +1,7 @@
 <br />
 <h1>
 <p align="center">
-  <img src="https://github.com/johnsonduong/lucid/blob/main/client/public/logo.png?raw=true" alt="Logo" width="110" height="110">
+  <img src="https://github.com/johnsonduong/lucid/blob/main/client/public/favicon.png?raw=true" alt="Logo" width="110" height="110">
   <br>Lucid Dream Journal
 </h1>
 <p align="center">
@@ -17,12 +17,12 @@
 
 <p align="center">
   
-<img src="https://github.com/johnsonduong/lucid/blob/main/src/images/image1.png?raw=true" >
-<img src="https://github.com/johnsonduong/lucid/blob/main/src/images/image2.png?raw=true" >
-<img src="https://github.com/johnsonduong/lucid/blob/main/src/images/image3.png?raw=true" >
-<img src="https://github.com/johnsonduong/lucid/blob/main/src/images/image4.png?raw=true" >
-<img src="https://github.com/johnsonduong/lucid/blob/main/src/images/image5.png?raw=true" >
-<img src="https://github.com/johnsonduong/lucid/blob/main/src/images/image6.png?raw=true" >
+<img src="https://github.com/johnsonduong/lucid/blob/main/images/image1.png?raw=true" >
+<img src="https://github.com/johnsonduong/lucid/blob/main/images/image2.png?raw=true" >
+<img src="https://github.com/johnsonduong/lucid/blob/main/images/image3.png?raw=true" >
+<img src="https://github.com/johnsonduong/lucid/blob/main/images/image4.png?raw=true" >
+<img src="https://github.com/johnsonduong/lucid/blob/main/images/image5.png?raw=true" >
+<img src="https://github.com/johnsonduong/lucid/blob/main/images/image6.png?raw=true" >
 </p>                                                                                                                             
                                                                                                                                                       
 ## About The Project
